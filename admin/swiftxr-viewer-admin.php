@@ -33,6 +33,15 @@ class SwiftXRViewerAdmin {
 
     }
 
+    public function render_tutorial() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+
+        include( plugin_dir_path( __FILE__ ) . 'views/tutorial.php' );
+
+    }
+
     public function render_form() {
 
         if ( ! current_user_can( 'manage_options' ) ) {

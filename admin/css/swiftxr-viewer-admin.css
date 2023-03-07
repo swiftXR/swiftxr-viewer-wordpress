@@ -71,3 +71,8 @@
     margin: 0;
     opacity: .8;
  }
+
+ .shortcode-id {
+    width: 50px;
+    /* Set the desired width */
+ }

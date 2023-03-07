@@ -99,7 +99,7 @@ class SwiftXRViewerPlugin{
     add_submenu_page(
       'swiftxr-app-dashboard',
       'SwiftXR Documentation',
-      'Tutorial',
+      'Guide',
       'manage_options',
       'swiftxr-tutorial',
       array( $this->admin, 'render_tutorial' )
@@ -107,7 +107,7 @@ class SwiftXRViewerPlugin{
 	}
   
   function swiftxr_shortcode( $atts ) {
-    
+
     // Get the saved SwiftXR shortcodes
     $swiftxr_shortcodes = get_option( 'swiftxr_shortcodes', array() );
     if ( ! $swiftxr_shortcodes ) {
