@@ -19,7 +19,7 @@ class SwiftXRDatabase {
 
         $table_exists = $wpdb->get_var( "SHOW TABLES LIKE '$this->table_name'" ) == $this->table_name;
 
-        if(! $table_exists){
+        if( !$table_exists){
 
             $charset_collate = $wpdb->get_charset_collate();
 
@@ -28,12 +28,14 @@ class SwiftXRDatabase {
                 url varchar(255) NOT NULL,
                 height varchar(255) NOT NULL,
                 width varchar(255) NOT NULL,
+                wc_product_id int(11),
                 PRIMARY KEY  (id)
             ) $charset_collate;";
 
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
             dbDelta( $sql );
         }
+
     }
 
     /**
@@ -48,7 +50,7 @@ class SwiftXRDatabase {
      *
      * @return int|false Shortcode ID on success, false on failure.
      */
-    public function add_update_shortcode_entry( $id, $url, $width, $height ) {
+    public function add_update_shortcode_entry( $id, $url, $width, $height, $wc_product_id ) {
         
         global $wpdb;
 
@@ -57,6 +59,7 @@ class SwiftXRDatabase {
             'url'         => $url,
             'width'       => $width,
             'height'      => $height,
+            'wc_product_id'      => $wc_product_id,
         );
 
         // Insert new entry.
@@ -113,6 +116,18 @@ class SwiftXRDatabase {
         $entry = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $this->table_name WHERE id = %d", $id ), ARRAY_A );
 
         return $entry ? $entry : null;
+    }
+
+    public function get_shortcode_entry_by_wc_id( $product_id ) {
+        global $wpdb;
+
+        try {
+            $entry = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $this->table_name WHERE wc_product_id = %d", $product_id ), ARRAY_A );
+
+            return $entry ? $entry : null;
+        } catch (Exception $e) {
+            return  null;
+        }
     }
 
     /**

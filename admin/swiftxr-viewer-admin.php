@@ -42,6 +42,15 @@ class SwiftXRViewerAdmin {
 
     }
 
+    public function render_settings() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
+
+        include( plugin_dir_path( __FILE__ ) . 'views/settings.php' );
+
+    }
+
     public function render_form() {
 
         if ( ! current_user_can( 'manage_options' ) ) {
@@ -65,6 +74,8 @@ class SwiftXRViewerAdmin {
         $width = '200px';
         $height = '200px';
 
+        $woo_commerce_products = $this->get_woocommerce_products();
+
         // Check if form submitted
         if ( isset( $_POST['swiftxr-shortcode-submit'] ) ) {
 
@@ -74,6 +85,8 @@ class SwiftXRViewerAdmin {
             $width_unit = sanitize_text_field( $_POST['swiftxr-w-unit'] );
             $height_unit = sanitize_text_field( $_POST['swiftxr-h-unit'] );
 
+            $wc_id = sanitize_text_field( $_POST['swiftxr-woocommerce-product-id'] );
+
             if ( empty( $url ) ) {
                 $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Please enter a URL.', 'swiftxr-shortcodes' ) . '</p></div>';
             } 
@@ -82,7 +95,7 @@ class SwiftXRViewerAdmin {
                 if ( $id ) {
                     // Update existing shortcode
 
-                    $update_state = $this->db->add_update_shortcode_entry($id, $url, $width . $width_unit, $height . $height_unit);
+                    $update_state = $this->db->add_update_shortcode_entry($id, $url, $width . $width_unit, $height . $height_unit, $wc_id);
 
                     if(! $update_state){
                         $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not update shortcode, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
@@ -95,7 +108,7 @@ class SwiftXRViewerAdmin {
                 else {
                     // Add new shortcode
 
-                    $add_state = $this->db->add_update_shortcode_entry(null, $url, $width . $width_unit, $height . $height_unit);
+                    $add_state = $this->db->add_update_shortcode_entry(null, $url, $width . $width_unit, $height . $height_unit, $wc_id);
 
                     if(!$add_state){
                         $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not create shortcode, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
@@ -138,6 +151,7 @@ class SwiftXRViewerAdmin {
                 $url = $shortcode['url'];
                 $width = $shortcode['width'];
                 $height = $shortcode['height'];
+                $wc_id = $shortcode['wc_product_id'];
 
                 $width_unit = $this->get_dimension_unit($width);
 
@@ -159,6 +173,26 @@ class SwiftXRViewerAdmin {
 
         return '%';
         
+    }
+
+    function get_woocommerce_products(){
+
+        if ( !class_exists( 'WC_Product_Query' ) ) {
+            return null;
+        }
+        
+
+        $query = new WC_Product_Query( array(
+            'limit' => -1,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'return' => 'objects',
+        ) );
+
+        $products = $query->get_products();
+
+        return $products;
+
     }
 
     public function get_shortcode_index_by_id( $shortcodes, $shortcode_id ) {

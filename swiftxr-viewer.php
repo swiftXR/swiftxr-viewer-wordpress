@@ -56,6 +56,31 @@ class SwiftXRViewerPlugin{
     // Register the shortcode.
     add_shortcode("swiftxr", array($this,'swiftxr_shortcode'));
 
+    //Register WooCommerce
+    // add_action( 'woocommerce_before_add_to_cart_button', array($this,'add_swiftxr_embed') );
+    add_action( 'woocommerce_before_single_product_summary', array($this,'add_swiftxr_embed') );
+    // add_action( 'woocommerce_product_thumbnails', array($this,'add_swiftxr_embed') );
+    // add_action( 'woocommerce_before_single_product', array($this,'add_swiftxr_embed') );
+    // add_action( 'woocommerce_after_single_product_summary', array($this,'add_swiftxr_embed') );
+
+
+  }
+
+  function add_swiftxr_embed() {
+
+    global $product;
+
+    $product_id = $product->get_id();
+
+    $swiftxr_entry = $this->database->get_shortcode_entry_by_wc_id($product_id);
+
+    if(!$swiftxr_entry){
+      echo '';
+    }
+    else{
+      echo $this->swiftxr_viewer_html($swiftxr_entry['id'],$swiftxr_entry['url'],"100%",$swiftxr_entry['height']);
+    }
+
   }
 
   function activate(){
@@ -104,6 +129,15 @@ class SwiftXRViewerPlugin{
       'swiftxr-tutorial',
       array( $this->admin, 'render_tutorial' )
     );
+
+    add_submenu_page(
+      'swiftxr-app-dashboard',
+      'SwiftXR Settings',
+      'Settings',
+      'manage_options',
+      'swiftxr-settings',
+      array( $this->admin, 'render_settings' )
+    );
 	}
   
   function swiftxr_shortcode( $atts ) {
@@ -130,8 +164,13 @@ class SwiftXRViewerPlugin{
     $swiftxr_width = isset( $shortcode_data['width'] ) ? $shortcode_data['width'] : '250px';
     $swiftxr_height = isset( $shortcode_data['height'] ) ? $shortcode_data['height'] : '250px';
 
+    return $this->swiftxr_viewer_html($atts['id'],$swiftxr_url,$swiftxr_width,$swiftxr_height);
+
+  }
+
+  function swiftxr_viewer_html($id,$url,$width, $height ){
     return '
-      <iframe title="SwiftXR Embed ' . esc_attr( $atts['id'] ) . '" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr camera; midi; encrypted-media" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="' . esc_attr( $swiftxr_width ) . '" height="' . esc_attr( $swiftxr_height ) . '" src="' . esc_url( $swiftxr_url ) . '"></iframe>
+      <iframe title="SwiftXR Embed ' . esc_attr( $id ) . '" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr camera; midi; encrypted-media" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" src="' . esc_url( $url ) . '"></iframe>
     ';
   }
 
