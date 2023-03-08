@@ -20,7 +20,7 @@
     <div>
         <h1 class="wp-heading-inline"><?php esc_html_e( 'SwiftXR App Dashboard', 'swiftxr-shortcodes' ); ?></h1>
 
-        <a href="<?php echo admin_url( 'admin.php?page=swiftxr-app-form' ); ?>" class="page-title-action"><?php esc_html_e( 'Add New', 'swiftxr-shortcodes' ); ?></a>
+        <a href="<?php echo admin_url( 'admin.php?page=swiftxr-app-form' ); ?>" class="page-title-action"><?php esc_html_e( 'Add New Entry', 'swiftxr-shortcodes' ); ?></a>
 
         <a href="<?php echo "https://swiftxr.io/hub"; ?>" target="_blank" rel="noopener" class="page-title-action"><?php esc_html_e( 'Go to SwiftXR Hub', 'swiftxr-shortcodes' ); ?></a>
     </div>

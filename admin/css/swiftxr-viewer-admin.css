@@ -42,7 +42,16 @@
 
  .swiftxr-custom-number-input{
     display: grid;
-    grid-template-columns: 1fr max-content;
+    grid-template-columns: max-content max-content;
+    justify-content: start;
+ }
+
+ #swiftxr-url{
+    width: 350px;
+ }
+
+ .swiftxr-custom-number-input > input{
+    width: 115px;
  }
 
  .swiftxr-form-action{
@@ -76,4 +85,20 @@
  .shortcode-id {
     width: 50px;
     /* Set the desired width */
+ }
+
+ .swiftxr-card-dimension{
+    display: grid;
+    grid-template-columns: repeat(2,max-content);
+    column-gap: 20px;
+ }
+
+ .swiftxr-card-dimension > div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+ }
+
+ .swiftxr-card-dimension >div > h5 {
+    font-size: 14px;
  }

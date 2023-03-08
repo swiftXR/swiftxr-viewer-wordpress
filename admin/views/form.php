@@ -31,7 +31,7 @@
 
                 <div class="swiftxr-card">
                     <div class="text-wrap">
-                        <h5><?php esc_html_e( 'SwiftXR Published Project Link', 'swiftxr-shortcodes' ); ?></h5>
+                        <h5><?php esc_html_e( 'Enter SwiftXR Published Project Link', 'swiftxr-shortcodes' ); ?></h5>
 
                         <a href="<?php echo "https://swiftxr.io/hub"; ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Generate URL?' ); ?></a>
                     </div>
@@ -42,30 +42,38 @@
                 </div>
 
                 <div class="swiftxr-card">
-                    <h5><?php esc_html_e( 'Width', 'swiftxr-shortcodes' ); ?></h5>
 
-                    <div class="swiftxr-custom-number-input">
-                        <input type="number" name="swiftxr-width" id="swiftxr-url" class="regular-text" value="<?php echo isset( $width ) ? esc_attr( str_replace(array('%', 'px'), '', $width) ) : ''; ?>">
+                    <h5><?php esc_html_e( 'Canvas Dimension', 'swiftxr-shortcodes' ); ?></h5>
 
-                        <select name="swiftxr-w-unit">
-                            <option value="px" <?php echo isset($width_unit) === 'px'? 'selected': '' ?>><?php esc_html_e( 'px', 'swiftxr-shortcodes' ); ?></option>
-                            <option value="%" <?php echo isset($width_unit) === '%'? 'selected': '' ?>><?php esc_html_e( '%', 'swiftxr-shortcodes' ); ?></option>
-                        </select>
+                    <div class="swiftxr-card-dimension">
+
+                        <div>
+                            <h5><?php esc_html_e( 'Width', 'swiftxr-shortcodes' ); ?></h5>
+
+                            <div class="swiftxr-custom-number-input">
+                                <input type="number" name="swiftxr-width" id="swiftxr-width" class="regular-text" value="<?php echo isset( $width ) ? esc_attr( str_replace(array('%', 'px'), '', $width) ) : ''; ?>">
+
+                                <select name="swiftxr-w-unit">
+                                    <option value="px" <?php echo isset($width_unit) === 'px'? 'selected': '' ?>><?php esc_html_e( 'px', 'swiftxr-shortcodes' ); ?></option>
+                                    <option value="%" <?php echo isset($width_unit) === '%'? 'selected': '' ?>><?php esc_html_e( '%', 'swiftxr-shortcodes' ); ?></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5><?php esc_html_e( 'Height', 'swiftxr-shortcodes' ); ?></h5>
+
+                            <div class="swiftxr-custom-number-input">
+                                <input type="number" name="swiftxr-height" id="swiftxr-height" class="regular-text" value="<?php echo isset( $height ) ? esc_attr( str_replace(array('%', 'px'), '', $height) ) : ''; ?>">
+
+                                <select name="swiftxr-h-unit">
+                                    <option value="px" <?php echo isset($height_unit) === 'px'? 'selected': '' ?>><?php esc_html_e( 'px', 'swiftxr-shortcodes' ); ?></option>
+                                    <option value="%" <?php echo isset($height_unit) === '%'? 'selected': '' ?>><?php esc_html_e( '%', 'swiftxr-shortcodes' ); ?></option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
-
-                <div class="swiftxr-card">
-                    <h5><?php esc_html_e( 'Height', 'swiftxr-shortcodes' ); ?></h5>
-
-                    <div class="swiftxr-custom-number-input">
-                        <input type="number" name="swiftxr-height" id="swiftxr-url" class="regular-text" value="<?php echo isset( $height ) ? esc_attr( str_replace(array('%', 'px'), '', $height) ) : ''; ?>">
-
-                        <select name="swiftxr-h-unit">
-                            <option value="px" <?php echo isset($height_unit) === 'px'? 'selected': '' ?>><?php esc_html_e( 'px', 'swiftxr-shortcodes' ); ?></option>
-                            <option value="%" <?php echo isset($height_unit) === '%'? 'selected': '' ?>><?php esc_html_e( '%', 'swiftxr-shortcodes' ); ?></option>
-                        </select>
-                    </div>
                 </div>
 
                 <?php if($woo_commerce_products) {?>
@@ -84,7 +92,7 @@
                             <?php } ?>
                         </select>
 
-                        <p class="swiftxr-text-muted"><?php esc_html_e( 'This is the URL link generated from publishing your project on the SwiftXR Platform', 'swiftxr-shortcodes' ); ?></p>
+                        <p class="swiftxr-text-muted"><?php esc_html_e( 'The SwiftXR project above will be linked to this WooCommerce product', 'swiftxr-shortcodes' ); ?></p>
 
                     </div>
 
@@ -95,7 +103,7 @@
             <?php wp_nonce_field( 'swiftxr-shortcode-form', 'swiftxr-shortcode-form-nonce' ); ?>
 
             <div class="swiftxr-form-action">
-                <?php submit_button( esc_html__( $id? 'Update Shortcode': 'Add Shortcode', 'swiftxr-shortcodes' ), 'primary', 'swiftxr-shortcode-submit' ) ?>
+                <?php submit_button( esc_html__( $id? 'Update Shortcode': 'Add Entry', 'swiftxr-shortcodes' ), 'primary', 'swiftxr-shortcode-submit' ) ?>
 
                 <?php if ($id) { ?>
 

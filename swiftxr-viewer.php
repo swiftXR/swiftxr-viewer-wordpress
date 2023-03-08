@@ -57,11 +57,11 @@ class SwiftXRViewerPlugin{
     add_shortcode("swiftxr", array($this,'swiftxr_shortcode'));
 
     //Register WooCommerce
-    // add_action( 'woocommerce_before_add_to_cart_button', array($this,'add_swiftxr_embed') );
+    add_action( 'woocommerce_before_add_to_cart_button', array($this,'add_swiftxr_embed') );
     add_action( 'woocommerce_before_single_product_summary', array($this,'add_swiftxr_embed') );
-    // add_action( 'woocommerce_product_thumbnails', array($this,'add_swiftxr_embed') );
-    // add_action( 'woocommerce_before_single_product', array($this,'add_swiftxr_embed') );
-    // add_action( 'woocommerce_after_single_product_summary', array($this,'add_swiftxr_embed') );
+    add_action( 'woocommerce_product_thumbnails', array($this,'add_swiftxr_embed') );
+    add_action( 'woocommerce_before_single_product', array($this,'add_swiftxr_embed') );
+    add_action( 'woocommerce_after_single_product_summary', array($this,'add_swiftxr_embed') );
 
 
   }

@@ -47,6 +47,9 @@ class SwiftXRViewerAdmin {
             return;
         }
 
+        $message = '';
+        $height = '400px';
+
         include( plugin_dir_path( __FILE__ ) . 'views/settings.php' );
 
     }
