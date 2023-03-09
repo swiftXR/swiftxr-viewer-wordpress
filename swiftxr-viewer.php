@@ -56,13 +56,19 @@ class SwiftXRViewerPlugin{
     // Register the shortcode.
     add_shortcode("swiftxr", array($this,'swiftxr_shortcode'));
 
-    //Register WooCommerce
-    add_action( 'woocommerce_before_add_to_cart_button', array($this,'add_swiftxr_embed') );
-    add_action( 'woocommerce_before_single_product_summary', array($this,'add_swiftxr_embed') );
-    add_action( 'woocommerce_product_thumbnails', array($this,'add_swiftxr_embed') );
-    add_action( 'woocommerce_before_single_product', array($this,'add_swiftxr_embed') );
-    add_action( 'woocommerce_after_single_product_summary', array($this,'add_swiftxr_embed') );
+    //Register WooCommerce Hooks
 
+    //Get Stored Product Placement Position
+    $product_placement = get_option( $this->admin->product_append_name);
+
+    if ( ! $product_placement ) {
+
+      $product_placement = 'woocommerce_before_single_product_summary';
+
+      update_option( $this->admin->product_append_name, $product_placement );
+    }
+
+    add_action( $product_placement, array($this,'add_swiftxr_embed') );
 
   }
 
@@ -74,11 +80,20 @@ class SwiftXRViewerPlugin{
 
     $swiftxr_entry = $this->database->get_shortcode_entry_by_wc_id($product_id);
 
+    $product_height = get_option( $this->admin->product_append_height);
+
+    if ( ! $product_height ) {
+
+      $product_height = '400px';
+
+      update_option( $this->admin->product_append_height, $product_height );
+    }
+
     if(!$swiftxr_entry){
       echo '';
     }
     else{
-      echo $this->swiftxr_viewer_html($swiftxr_entry['id'],$swiftxr_entry['url'],"100%",$swiftxr_entry['height']);
+      echo $this->swiftxr_viewer_html($swiftxr_entry['id'],$swiftxr_entry['url'],"100%",$product_height);
     }
 
   }

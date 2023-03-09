@@ -3,6 +3,8 @@
 class SwiftXRViewerAdmin {
 
     private $db;
+    public $product_append_name = 'swiftxr-product-append';
+    public $product_append_height = 'swiftxr-product-height';
 
     function __construct($database){
 
@@ -50,6 +52,31 @@ class SwiftXRViewerAdmin {
         $message = '';
         $height = '400px';
 
+        // Check if form submitted
+        if ( isset( $_POST['swiftxr-settings-submit'] ) ) {
+            
+            $product_append = sanitize_text_field( $_POST['swiftxr-product-append'] );
+            $height = sanitize_text_field( $_POST['swiftxr-height'] );
+
+            $height_unit = sanitize_text_field( $_POST['swiftxr-h-unit'] );
+
+            // Update the product placement
+            update_option( $this->product_append_name, $product_append );
+
+            // Update the Height based on the settings value
+            update_option( $this->product_append_height, $height . $height_unit );
+
+            $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings Saved.', 'swiftxr-shortcodes' ) . '</p></div>';
+            
+        }
+
+        $product_placement = get_option( $this->product_append_name);
+        $product_height = get_option( $this->product_append_height);
+
+        if($product_height){
+            $height = $product_height;
+        }
+
         include( plugin_dir_path( __FILE__ ) . 'views/settings.php' );
 
     }
@@ -63,6 +90,7 @@ class SwiftXRViewerAdmin {
         $message = '';
         $shortcode = null;
         $id = null;
+        $wc_product = null;
 
         $query_id = isset( $_GET['id'] ) ? intval( $_GET['id'] ) : null;
 
@@ -90,6 +118,8 @@ class SwiftXRViewerAdmin {
 
             $wc_id = sanitize_text_field( $_POST['swiftxr-woocommerce-product-id'] );
 
+            $wc_product = $this->get_woocommerce_product_by_id($wc_id);
+
             if ( empty( $url ) ) {
                 $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Please enter a URL.', 'swiftxr-shortcodes' ) . '</p></div>';
             } 
@@ -101,10 +131,10 @@ class SwiftXRViewerAdmin {
                     $update_state = $this->db->add_update_shortcode_entry($id, $url, $width . $width_unit, $height . $height_unit, $wc_id);
 
                     if(! $update_state){
-                        $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not update shortcode, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
+                        $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not update entry, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
                     }
                     else{
-                        $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Shortcode updated.', 'swiftxr-shortcodes' ) . '</p></div>';
+                        $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Entry updated.', 'swiftxr-shortcodes' ) . '</p></div>';
 
                     }
                 } 
@@ -114,10 +144,10 @@ class SwiftXRViewerAdmin {
                     $add_state = $this->db->add_update_shortcode_entry(null, $url, $width . $width_unit, $height . $height_unit, $wc_id);
 
                     if(!$add_state){
-                        $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not create shortcode, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
+                        $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not create Entry, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
                     }
                     else{
-                        $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Shortcode added.', 'swiftxr-shortcodes' ) . '</p></div>';
+                        $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Entry added.', 'swiftxr-shortcodes' ) . '</p></div>';
 
                         $id = $add_state;
                     }
@@ -136,10 +166,10 @@ class SwiftXRViewerAdmin {
 
 
                 if(! $del_state){
-                    $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not delete shortcode, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
+                    $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not delete Entry, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
                 }
                 else{
-                    $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Shortcode Deleted.', 'swiftxr-shortcodes' ) . '</p></div>';
+                    $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Entry Deleted.', 'swiftxr-shortcodes' ) . '</p></div>';
 
                 }
 
@@ -155,6 +185,8 @@ class SwiftXRViewerAdmin {
                 $width = $shortcode['width'];
                 $height = $shortcode['height'];
                 $wc_id = $shortcode['wc_product_id'];
+
+                $wc_product = $this->get_woocommerce_product_by_id($wc_id);
 
                 $width_unit = $this->get_dimension_unit($width);
 
@@ -196,6 +228,17 @@ class SwiftXRViewerAdmin {
 
         return $products;
 
+    }
+
+    function get_woocommerce_product_by_id( $product_id ) {
+
+        if ( ! class_exists( 'WC_Product_Query' ) ) {
+            return null;
+        }
+
+        $product = wc_get_product( $product_id );
+
+        return $product;
     }
 
     public function get_shortcode_index_by_id( $shortcodes, $shortcode_id ) {
