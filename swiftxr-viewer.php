@@ -8,7 +8,6 @@ if ( !defined( 'ABSPATH' ) ) {
 
 /**
 * Plugin Name: SwiftXR (3D/AR/VR) Viewer
-* Plugin URI: https://home.swiftxr.io/
 * Description: Easily add 3D/AR/VR views to your wesite and products to boost sales, engagement and delight customers
 * Version: 1.0.0
 * Author: SwiftXR
