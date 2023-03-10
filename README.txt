@@ -39,7 +39,9 @@ e.g.
 3. Use shortcode in page, post or in widgets.
 4. The "Guide" page in the SwiftXR Viewer Admin dashboard contains step by step tutorial
 
+### Pricing 
 
+* 5 Credits for $1
 
 == Frequently Asked Questions ==
 = Which 3D files currently this plugin support?  
