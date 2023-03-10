@@ -12,8 +12,16 @@ class SwiftXRViewerAdmin {
 
         add_action( 'admin_enqueue_scripts', array($this, 'enqueue_admin_script') );
 
+        // add_action( 'admin_notices', array($this, 'swiftxr_admin_notice') );
+
     }
 
+    function swiftxr_admin_notice() {
+        $class = 'notice notice-error is-dismissible';
+        $message = __( 'This is my custom notice.', 'my-custom-notice' );
+        printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
+    }
+        
     function enqueue_admin_script() {
         wp_enqueue_script( 'swiftxr-admin-js', plugin_dir_url( __FILE__ ) . '/js/swiftxr-viewer-admin.js' );
 
@@ -121,6 +129,7 @@ class SwiftXRViewerAdmin {
             $wc_product = $this->get_woocommerce_product_by_id($wc_id);
 
             if ( empty( $url ) ) {
+
                 $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Please enter a URL.', 'swiftxr-shortcodes' ) . '</p></div>';
             } 
             else {
@@ -131,9 +140,11 @@ class SwiftXRViewerAdmin {
                     $update_state = $this->db->add_update_shortcode_entry($id, $url, $width . $width_unit, $height . $height_unit, $wc_id);
 
                     if(! $update_state){
+
                         $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not update entry, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
                     }
                     else{
+
                         $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Entry updated.', 'swiftxr-shortcodes' ) . '</p></div>';
 
                     }
@@ -144,9 +155,11 @@ class SwiftXRViewerAdmin {
                     $add_state = $this->db->add_update_shortcode_entry(null, $url, $width . $width_unit, $height . $height_unit, $wc_id);
 
                     if(!$add_state){
+
                         $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not create Entry, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
                     }
                     else{
+
                         $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Entry added.', 'swiftxr-shortcodes' ) . '</p></div>';
 
                         $id = $add_state;
@@ -166,9 +179,11 @@ class SwiftXRViewerAdmin {
 
 
                 if(! $del_state){
-                    $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not delete Entry, try again.', 'swiftxr-shortcodes' ) . '</p></div>';
+
+                    $message = '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not delete Entry.', 'swiftxr-shortcodes' ) . '</p></div>';
                 }
                 else{
+
                     $message = '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Entry Deleted.', 'swiftxr-shortcodes' ) . '</p></div>';
 
                 }

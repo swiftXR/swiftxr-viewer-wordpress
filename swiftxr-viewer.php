@@ -7,30 +7,16 @@ if ( !defined( 'ABSPATH' ) ) {
 
 
 /**
-* Plugin Name: swiftxr-viewer
+* Plugin Name: SwiftXR (3D/AR/VR) Viewer
 * Plugin URI: https://home.swiftxr.io/
-* Description: Publish 3D and 2D contents to Web3D and XR.
-* Version: 0.1
+* Description: Easily add 3D/AR/VR views to your wesite and products to boost sales, engagement and delight customers
+* Version: 1.0.0
 * Author: SwiftXR
 * Author URI: https://home.swiftxr.io/
 * License: GPL v2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 **/
 
-/*
-swiftxr-viewer is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-any later version.
-
-swiftxr-viewer is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with swiftxr-viewer. If not, see  https://www.gnu.org/licenses/gpl-2.0.html.
-*/
 
 class SwiftXRViewerPlugin{
 

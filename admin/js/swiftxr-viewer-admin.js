@@ -59,7 +59,10 @@ window.addEventListener('load',()=>{
 	// RunCheckBoxSelect();
 })
 
-let currentSelectedProductIndex = null;
+let currentSelectedProductIndex = {
+	index: null,
+	parent: null
+};
 
 //swiftxr-mode-toggle
 
@@ -84,9 +87,11 @@ function RunCheckBoxSelect() {
 
 function SelectProduct(evt) {
 
-	currentSelectedProductIndex = evt.value;
+	currentSelectedProductIndex.index = evt.value;
+	currentSelectedProductIndex.parent = evt?.parentElement;
 
 	document.querySelector('#product-picker-select').disabled = false;
+
 }
 
 function AddSelectedProduct(evt) {
@@ -99,10 +104,29 @@ function AddSelectedProduct(evt) {
 		return;
 	}
 
-	productIdEl.value = currentSelectedProductIndex;
+	productIdEl.value = currentSelectedProductIndex?.index;
 
 	CloseProductPicker();
 
+	const selectorEl = document.querySelector('#swiftxr-wc-selected-product');
+
+	if(!selectorEl){
+		return;
+	}
+
+	if(currentSelectedProductIndex?.parent){
+		selectorEl.innerHTML = '';
+
+		const el = currentSelectedProductIndex.parent.cloneNode(true);
+
+		const image = el.querySelector('img');
+		const text = el.querySelector('p');
+
+		selectorEl.append(image,text);
+
+		el.remove();
+	}
+	 
 }
 
 function CloseProductPicker() {

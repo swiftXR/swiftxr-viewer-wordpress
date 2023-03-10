@@ -12,7 +12,8 @@
 
  .swiftxr-card{
     border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 4px 8px 0px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 4px 8px 0px; */
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
     padding: 15px;
     background-color: #fff;
 
@@ -52,8 +53,32 @@
     flex-direction: column;
     row-gap: 20px;
     position: relative;
-    /* max-width: 800px; */
-    /* justify-content: center; */
+    max-width: 720px;
+    justify-content: center;
+    margin: 0 auto;
+    /* margin-top: 100px; */
+    /* align-items: center; */
+ }
+
+ .swiftxr-notice{
+   width: 100% !important;
+   position: relative;
+   margin: 0 !important;
+ }
+
+ /*Ordinary Flex Column for Forms*/
+ .swiftxr-column-odn{
+   display: flex;
+   flex-direction: column;
+   row-gap: 20px;
+ }
+
+ .swiftxr-bigger{
+   max-width: 850px !important;
+ }
+
+ .swiftxr-left{
+   margin: 0 !important;
  }
 
  .swiftxr-custom-number-input{
@@ -148,17 +173,33 @@
 .main-card h5{
    font-weight: 600;
 }
+.swiftxr-wrap{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   row-gap: 20px;
+   padding: 0;
+   margin: 0;
+   padding-right: 20px;
+   background-color: #f3f3f3;
+}
+
+
 
 .swiftxr-header{
    display: flex;
    justify-content: space-between;
    align-items: center;
-   /* position: fixed; */
+   position: sticky;
    /* background-color: #ffffff; */
    width: 100%;
    height: max-content;
-   padding: 10px 0px;
-   /* top: 0; */
+   padding: 15px 0px;
+   border-bottom: 1px solid #1b1b1b2c;
+   margin: 0;
+   top: 32px;
+   z-index: 2;
+   background-color: #f3f3f3;
    /* left: 0; */
 }
 
@@ -364,4 +405,13 @@
 
 .swiftxr-modal-close:hover {
    opacity: .8;
+}
+
+.swiiftxr-center {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   align-items: center;
+   padding: 25px 20px;
 }
