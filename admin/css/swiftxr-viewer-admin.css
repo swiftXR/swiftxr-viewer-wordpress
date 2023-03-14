@@ -26,7 +26,7 @@
  .swiftxr-card h5{
     font-size: 16px;
     margin: 0;
-    font-weight: 400;
+    font-weight: 500;
     opacity: 1;
  }
 
@@ -142,6 +142,7 @@
 
  .swiftxr-card-dimension >div > h5 {
     font-size: 14px;
+    font-weight: 400;
  }
 
 .swiftxr-sub-header{
@@ -198,7 +199,7 @@
    border-bottom: 1px solid #1b1b1b2c;
    margin: 0;
    top: 32px;
-   z-index: 2;
+   z-index: 1;
    background-color: #f3f3f3;
    /* left: 0; */
 }
@@ -291,6 +292,7 @@
    padding: 50px;
    display: flex;
    justify-content: center;
+   z-index: 10;
 }
 
 .swiftxr-modal .modal-content{
@@ -414,4 +416,13 @@
    text-align: center;
    align-items: center;
    padding: 25px 20px;
+}
+
+
+.swiftxr-shortcode-content{
+   border: 1px solid #1b1b1b80;
+   padding: 5px;
+   font-size: 16px !important;
+   width: max-content;
+   font-weight: 800;
 }
