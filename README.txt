@@ -4,7 +4,7 @@ Website link: https://swiftxr.io/
 Tags: 3d, ar, vr, e-commerce, productivity, marketing
 Requires at least: 3.0.1
 Tested up to: 6.1.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,3 +81,6 @@ Please email us at [support@swiftxr.io](mailto:support@swiftxr.io)
 
 = 1.0.0 =
 * Added initial plugin release build files.
+
+= 1.0.1 =
+* Fixed issue with shortcode not rendering.
