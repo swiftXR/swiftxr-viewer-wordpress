@@ -10,9 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Easily add 3D/AR/VR views to your wesite and products to boost sales, engagement and delight customers
 
-### Description
+== Description ==
 
 Increase sales and conversions in your store by letting your customers view your product in 3D, AR, and VR. SwiftXR will help you optimize and compress your files enabling a smoother 3D integration to your store. With SwiftXR you do not need to worry about scalability. Our unique credit-based pricing system allows you to only pay for what you need when you need it.
+
+https://www.youtube.com/watch?v=jYndqP7D_q8
 
 ### Features 
 
@@ -27,6 +29,10 @@ Increase sales and conversions in your store by letting your customers view your
 * Generate 3D Artworks from 2D Images
 
 * Generate 3D Avatars
+
+### Pricing 
+
+* 5 Credits for $1
   
 == Installation ==
 
@@ -39,9 +45,6 @@ e.g.
 3. Use shortcode in page, post or in widgets.
 4. The "Guide" page in the SwiftXR Viewer Admin dashboard contains step by step tutorial
 
-### Pricing 
-
-* 5 Credits for $1
 
 == Frequently Asked Questions ==
 = Which 3D files currently this plugin support?  
@@ -57,17 +60,24 @@ Yes, you can paste the shortCode of SwiftXR Viewer and paste it inside Elementor
 At the moment, we only support the files listed above, which are generally supported accross various softwares. If you want a specific file type please send an email to support@swiftxr.io and we can see if its possible to integrate.
 
 = How can I reach you, if I need any modification, customization or helps?
-[Please email us at ](support@swiftxr.io)
+Please email us at [support@swiftxr.io](mailto:support@swiftxr.io)
 
 == Screenshots ==
 
-1. SwiftXR Viewer Admin Dashboard
-2. Direct Webiste Embed
-3. Woocommerce Shop Page
-4. SwiftXR Platform
+1. WooCommerce Store using SwiftXR.
+[![Screenshot 1](swiftxr-woocommerce.jpg)](swiftxr-woocommerce.jpg)
+
+2. Wordpress Post Page 3D Embed.
+[![Screenshot 2](swiftxr-direct-embed.jpg)](swiftxr-direct-embed.jpg)
+
+3. SwiftXR Platform.
+[![Screenshot 3](swiftxr-platform.jpg)](swiftxr-platform.jpg)
+
+4. SwiftXR Viewer plugin admin dashboard page.
+[![Screenshot 4](swiftxr-viewer-admin-dashboard.jpg)](swiftxr-viewer-admin-dashboard.jpg)
 
 
 == Changelog ==
 
 = 1.0.0 =
-* Added initial plugin build files.
+* Added initial plugin release build files.

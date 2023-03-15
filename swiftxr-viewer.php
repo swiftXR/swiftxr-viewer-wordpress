@@ -142,12 +142,6 @@ class SwiftXRViewerPlugin{
   
   function swiftxr_shortcode( $atts ) {
 
-    // Get the saved SwiftXR shortcodes
-    $swiftxr_shortcodes = get_option( 'swiftxr_shortcodes', array() );
-    if ( ! $swiftxr_shortcodes ) {
-      return '';
-    }
-
     // Get the shortcode attributes
     $atts = shortcode_atts( array(
       'id' => '',

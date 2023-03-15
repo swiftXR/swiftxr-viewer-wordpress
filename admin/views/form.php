@@ -209,19 +209,27 @@
                         </div>
 
                         <div class="modal-body-content" id="swiftxr-product-modal">
-                            <?php foreach ( $woo_commerce_products as $woo ) { ?>
-                                <div data-product-id="<?php echo esc_attr( $woo->get_id() ); ?>">
-                                
-                                    <label class="swiftxr-product-item">
+                            <?php if($woo_commerce_products){ ?>
 
-                                        <input type="radio" id="wc-product-id" name="swiftxr-product" value="<?php echo esc_attr( $woo->get_id() ); ?>" oninput="SelectProduct(this)">
+                                <?php foreach ( $woo_commerce_products as $woo ) { ?>
+                                    <div data-product-id="<?php echo esc_attr( $woo->get_id() ); ?>">
+                                    
+                                        <label class="swiftxr-product-item">
 
-                                        <img src="<?php echo esc_attr( wp_get_attachment_image_src( $woo->get_image_id(), 'thumbnail' )[0] ); ?>" alt="<?php echo esc_attr( $woo->get_name() ); ?>">
+                                            <input type="radio" id="wc-product-id" name="swiftxr-product" value="<?php echo esc_attr( $woo->get_id() ); ?>" oninput="SelectProduct(this)">
 
-                                        <p><?php esc_html_e( $woo->get_name(), 'swiftxr-3darvr-viewer' ); ?></p>
+                                            <img src="<?php echo esc_attr( wp_get_attachment_image_src( $woo->get_image_id(), 'thumbnail' )[0] ); ?>" alt="<?php echo esc_attr( $woo->get_name() ); ?>">
 
-                                    </label>
-                                </div>
+                                            <p><?php esc_html_e( $woo->get_name(), 'swiftxr-3darvr-viewer' ); ?></p>
+
+                                        </label>
+                                    </div>
+                                <?php } ?>
+
+                            <?php }else{ ?>
+
+                                <p><?php esc_html_e( 'No WooCommerce Product Found', 'swiftxr-3darvr-viewer' )?></p>
+                            
                             <?php } ?>
                         </div>
 
