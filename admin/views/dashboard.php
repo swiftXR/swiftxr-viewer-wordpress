@@ -41,9 +41,11 @@
 
                 <a href="<?php echo esc_url( "https://swiftxr.io/hub" ); ?>" target="_blank" rel="noopener" class="button"><?php esc_html_e( 'Go to SwiftXR Hub', 'swiftxr-3darvr-viewer' ); ?></a>
 
-                <!-- <p>
-                    <?php esc_html_e( 'Learn more about SwiftXR Viewer on Wordpress by checking out this tutorial 📚', 'swiftxr-3darvr-viewer' ); ?>
-                </p> -->
+                <p>
+                    <?php esc_html_e( 'Learn more about SwiftXR Viewer on Wordpress by checking out this', 'swiftxr-3darvr-viewer' ); ?>
+
+                    <a href="<?php echo esc_url( "https://youtu.be/zJqSmkLvy64" ); ?>" target="_blank" rel="noopener"><?php esc_html_e( ' tutorial 📚', 'swiftxr-3darvr-viewer' ); ?></a>
+                </p>
             </div>
 
             <div>

@@ -84,3 +84,6 @@ Please email us at [support@swiftxr.io](mailto:support@swiftxr.io)
 
 = 1.0.1 =
 * Fixed issue with shortcode not rendering.
+
+= 1.0.2 =
+* Added SwiftXR user guide tutorial.
