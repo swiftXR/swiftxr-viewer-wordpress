@@ -1,7 +1,7 @@
-SwiftXR (3D/AR/VR) Viewer
+=== SwiftXR (3D/AR/VR) Viewer ===
 Creator: SwiftXR
 Website link: https://swiftxr.io/
-Tags: 3d, ar, vr, e-commerce, productivity, marketing
+Tags: Augmented Reality, AR, 3D, Model Viewer, 3D Model, 3D Model Viewer, 3D Model Display, Virtual Reality, VR, E Commerce, Marketing, Productivity
 Requires at least: 3.0.1
 Tested up to: 6.1.1
 Stable tag: 1.0.1
@@ -65,16 +65,12 @@ Please email us at [support@swiftxr.io](mailto:support@swiftxr.io)
 == Screenshots ==
 
 1. WooCommerce Store using SwiftXR.
-[![Screenshot 1](swiftxr-woocommerce.jpg)](swiftxr-woocommerce.jpg)
 
 2. Wordpress Post Page 3D Embed.
-[![Screenshot 2](swiftxr-direct-embed.jpg)](swiftxr-direct-embed.jpg)
 
 3. SwiftXR Platform.
-[![Screenshot 3](swiftxr-platform.jpg)](swiftxr-platform.jpg)
 
 4. SwiftXR Viewer plugin admin dashboard page.
-[![Screenshot 4](swiftxr-viewer-admin-dashboard.jpg)](swiftxr-viewer-admin-dashboard.jpg)
 
 
 == Changelog ==
