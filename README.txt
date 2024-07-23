@@ -3,8 +3,8 @@ Creator: SwiftXR
 Website link: https://swiftxr.io/
 Tags: Augmented Reality, AR, 3D, Model Viewer, 3D Model, 3D Model Viewer, 3D Model Display, Virtual Reality, VR, E Commerce, Marketing, Productivity
 Requires at least: 3.0.1
-Tested up to: 6.1.1
-Stable tag: 1.0.1
+Tested up to: 6.6
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,11 +20,15 @@ https://www.youtube.com/watch?v=jYndqP7D_q8
 
 * WooCommerce Support and Direct Website Embeding
 
-* 3D, Augmented and Virtual Reality view of your product
+* Immersive 3D, Augmented and Virtual Reality product views
+
+* Dynamic face tracking for trying out accessories like sunglasses and hats
+
+* Precise image tracking
 
 * Automatic 3D file compression and optimisation: worry less about file sizes
 
-* 3D file converter: convert .FBX, .OBJ, .STL to .GLB
+* 3D file converter, supporting formats such as .FBX, .OBJ, .STL, .GLTF and .GLB
 
 * Generate 3D Artworks from 2D Images
 
@@ -32,7 +36,12 @@ https://www.youtube.com/watch?v=jYndqP7D_q8
 
 ### Pricing 
 
-* 5 Credits for $1
+$2.5 per project per month
+
+* Get 10,000 views per project per month
+* $1 per additional 1,000 view
+* Enjoy automatic project renewals
+* Max 100 MB Size (Per Project)
   
 == Installation ==
 
@@ -47,20 +56,20 @@ e.g.
 
 
 == Frequently Asked Questions ==
-= Which 3D files currently this plugin support?  
-Currently this plugin support .glb, .gltf, .fbx, .obj and .stl files. 
+= What 3D file formats does SwiftXR support?
+SwiftXR currently supports the following 3D file formats: .glb, .gltf, .fbx, .obj, and .stl.
 
-= I dont have a 3D model, how do I test ?  
-The SwiftXR platform, has a direct integration with Sketchfab, Opensea and Rarible giving you access to millions of free 3D models.
+= What if I don't have a 3D model to use with SwiftXR?
+No problem! SwiftXR has direct integrations with Sketchfab, Opensea, and Rarible, which provide access to millions of free 2D and 3D models for you to use and test with.
 
-= Can I use this plugin with Elementor page builder ?  
-Yes, you can paste the shortCode of SwiftXR Viewer and paste it inside Elementor's Shortcode elements. 
+= Can I use SwiftXR with the Elementor page builder?
+Yes! Simply paste the shortcode for the SwiftXR Viewer inside Elementor's Shortcode elements.
 
-= I have a custom file type that I want to embed?
-At the moment, we only support the files listed above, which are generally supported accross various softwares. If you want a specific file type please send an email to support@swiftxr.io and we can see if its possible to integrate.
+= Can I embed a custom file type with SwiftXR?
+Currently, SwiftXR only supports the 3D file formats listed above, which are widely supported across various software programs. If you have a specific file type you would like to use, please send an email to support@swiftxr.io, and we will see if it is possible to integrate.
 
-= How can I reach you, if I need any modification, customization or helps?
-Please email us at [support@swiftxr.io](mailto:support@swiftxr.io)
+= How can I reach out for support, customization, or other help with SwiftXR?
+For any support or customization needs, please do not hesitate to reach out to us via email at support@swiftxr.io.
 
 == Screenshots ==
 
@@ -75,11 +84,24 @@ Please email us at [support@swiftxr.io](mailto:support@swiftxr.io)
 
 == Changelog ==
 
-= 1.0.0 =
-* Added initial plugin release build files.
+= 1.0.6 =
+* Updated documentation.
+
+= 1.0.5 =
+* Added Support for Face and Image Tracking.
+
+= 1.0.4 =
+* Updated ReadMe Information.
+
+= 1.0.3 =
+* Updated ReadMe Tags.
+
+= 1.0.2 =
+* Added SwiftXR user guide tutorial.
 
 = 1.0.1 =
 * Fixed issue with shortcode not rendering.
 
-= 1.0.2 =
-* Added SwiftXR user guide tutorial.
+= 1.0.0 =
+* Added initial plugin release build files.
+

@@ -250,7 +250,7 @@
             <div class="swiftxr-card">
                 <h5 for="swiftxr-iframe"><?php esc_html_e( '3D Object Preview', 'swiftxr-3darvr-viewer' ); ?></h5>
 
-                <iframe name="swiftxr-iframe" id="swiftxr-iframe" class="swiftxr-iframe" width="100%" height="500px" src="<?php echo isset( $url ) ? esc_url( $url ) : ''; ?>"></iframe>
+                <iframe name="swiftxr-iframe" id="swiftxr-iframe" class="swiftxr-iframe" width="100%" height="500px" allow="fullscreen; autoplay; vr; camera; midi; encrypted-media; xr-spatial-tracking;" src="<?php echo isset( $url ) ? esc_url( $url ) : ''; ?>"></iframe>
             </div>
 
         </div>
