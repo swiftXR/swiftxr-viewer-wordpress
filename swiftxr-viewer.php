@@ -9,7 +9,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
 * Plugin Name: SwiftXR (3D/AR/VR) Viewer
 * Description: Easily add 3D/AR/VR views to your wesite and products to boost sales, engagement and delight customers
-* Version: 1.0.1
+* Version: 1.0.6
 * Author: SwiftXR
 * Author URI: https://home.swiftxr.io/
 * License: GPL v2 or later
@@ -164,7 +164,7 @@ class SwiftXRViewerPlugin{
 
   function swiftxr_viewer_html($id,$url,$width, $height ){
     return '
-      <iframe title="SwiftXR Embed ' . esc_attr( $id ) . '" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr camera; midi; encrypted-media" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" src="' . esc_url( $url ) . '"></iframe>
+      <iframe title="SwiftXR Embed ' . esc_attr( $id ) . '" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr; camera; midi; encrypted-media" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" src="' . esc_url( $url ) . '"></iframe>
     ';
   }
 
